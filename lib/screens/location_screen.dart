@@ -84,7 +84,6 @@ class _LocationScreenState extends State<LocationScreen> {
                         var weatherData =
                             await weather.getCityWeather(typedName);
                         updateUI(weatherData);
-                        print(weatherData);
                       }
                     },
                     child: Icon(

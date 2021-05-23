@@ -8,7 +8,6 @@ class WeatherModel {
   Future<dynamic> getCityWeather(String cityName) async {
     var url =
         '${kOpenWeatherMapUrl}q=${cityName}&appid=${kAppKey}&units=metric';
-    print(url);
     NetworkHelper networkhelper = NetworkHelper(url);
     var weatherData = await networkhelper.getData();
     return weatherData;
