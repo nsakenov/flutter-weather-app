@@ -17,7 +17,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     try {
       var weatherData = await weathermodel
           .getLocationWeather()
-          .timeout(const Duration(seconds: 7));
+          .timeout(const Duration(seconds: 10));
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return LocationScreen(locationWeather: weatherData);
       }));

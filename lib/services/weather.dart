@@ -5,12 +5,22 @@ import 'package:clima/utilities/constants.dart';
 const kOpenWeatherMapUrl = 'https://api.openweathermap.org/data/2.5/weather?';
 
 class WeatherModel {
+  Future<dynamic> getCityWeather(String cityName) async {
+    var url =
+        '${kOpenWeatherMapUrl}q=${cityName}&appid=${kAppKey}&units=metric';
+    print(url);
+    NetworkHelper networkhelper = NetworkHelper(url);
+    var weatherData = await networkhelper.getData();
+    return weatherData;
+  }
+
   Future<dynamic> getLocationWeather() async {
     Location location = Location();
     await location.getCurrentLocation();
+    print('location: ${location.latitude}, ${location.longitude}');
 
     NetworkHelper networkhelper = NetworkHelper(
-        '${kOpenWeatherMapUrl}lat=${location.latitude}&lon=${location.longitude}&appid=$kAppKey&units=metric');
+        '${kOpenWeatherMapUrl}lat=${location.latitude}&lon=${location.longitude}&appid=${kAppKey}&units=metric');
 
     var weatherData = await networkhelper.getData();
     return weatherData;

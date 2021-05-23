@@ -20,3 +20,17 @@ const kConditionTextStyle = TextStyle(
 );
 
 const kAppKey = 'e8285c4eb677679a5116454c9aff62d1';
+
+InputDecoration kInputDecoration = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  icon: Icon(Icons.location_city, color: Colors.white),
+  hintText: 'Enter City Name',
+  hintStyle: TextStyle(color: Colors.grey),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+    borderSide: BorderSide.none,
+  ),
+);
